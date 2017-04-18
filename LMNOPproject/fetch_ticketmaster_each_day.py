@@ -36,9 +36,9 @@ try:
 
     # getting time and formatting it for ticketmaster.
     time = datetime.utcnow()
-    start_time = time + timedelta(days=1)
+    start_time = time + timedelta(days=1) - timedelta(hours=5)
     final_start = start_time.strftime("%Y-%m-%dT%H:%M:%SZ")
-    end_time = time + timedelta(days=2)
+    end_time = time + timedelta(days=2) - timedelta(hours=5)
     final_end = end_time.strftime("%Y-%m-%dT%H:%M:%SZ")
     print(final_start)
     print(final_end)
@@ -157,18 +157,7 @@ try:
             cur.execute('SELECT * FROM lmn_show')
             event_rows = cur.fetchall()
             print(event_rows)
-    #
-    #         artist_query = Artist.objects.filter(name = name)
-    #
-    #         show_query = Show.objects.filter(show_date = date).filter(artist = artist_query[0]).filter(venue = venue_query[0])
-    #
-    #         # if the show hasn't been created.
-    #         if not show_query:
-    #
-    #             entry = Show.objects.create(show_date = date, artist = artist_query[0], venue = venue_query[0])
-    #
-    #
-    #
+    
     except Exception as e:
 
         logging.exception("Problem!")
