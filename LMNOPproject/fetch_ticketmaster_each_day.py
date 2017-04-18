@@ -36,9 +36,9 @@ try:
 
     # getting time and formatting it for ticketmaster.
     time = datetime.utcnow()
-    start_time = time + timedelta(days=1) - timedelta(hours=5)
+    start_time = time + timedelta(days=1)
     final_start = start_time.strftime("%Y-%m-%dT%H:%M:%SZ")
-    end_time = time + timedelta(days=2) - timedelta(hours=5)
+    end_time = time + timedelta(days=2)
     final_end = end_time.strftime("%Y-%m-%dT%H:%M:%SZ")
     print(final_start)
     print(final_end)
