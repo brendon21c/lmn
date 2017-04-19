@@ -10,11 +10,15 @@ import urllib.parse as urlparse
 
 
 try:
-    
+
     url = os.environ['DATABASE_URL']
     p_url = urlparse.urlparse(url)
+    dbname = p_url.path[1:]
+    user = p_url.username
+    password = p_url.password
 
-    db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'], host=p_url.hostname, port=p_url.port)
+
+    db = psycopg2.connect(database=dbname, user=user, password=password, host=p_url.hostname, port=p_url.port)
     #db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'])
     cur = db.cursor()
 
