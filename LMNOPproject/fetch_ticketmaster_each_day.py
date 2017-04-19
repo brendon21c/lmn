@@ -10,7 +10,11 @@ import os
 
 try:
 
-    db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'], host= os.environ['DATABASE_URL'])
+    import dj_database_url
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)
+
+    db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'], host=db_from_env)
     cur = db.cursor()
 
     # search = 'SELECT * FROM lmn_note'
