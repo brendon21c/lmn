@@ -116,44 +116,44 @@ try:
             date = value_list[1]
             print(date)
 
-            # cur.execute('SELECT * FROM lmn_artist WHERE name=%s', (name,))
-            # artist_rows = cur.fetchall()
-            #
-            # cur.execute('SELECT * FROM lmn_venue WHERE name=%s', (location,))
-            # venue_rows = cur.fetchall()
-            #
-            # artist_id = 0
-            # venue_id = 0
-            #
-            # #check if artist is in database.
-            # if not artist_rows:
-            #
-            #     query = 'INSERT INTO lmn_artist (name) VALUES (%s)'
-            #     cur.execute(query, (name,))
-            #     db.commit()
-            #
-            # #need to get artist ID to enter show information.
-            # cur.execute('SELECT * FROM lmn_artist WHERE name=%s', (name,))
-            # artist_rows = cur.fetchall()
-            # artist_id = artist_rows[0][0]
-            #
-            # cur.execute('SELECT * FROM lmn_venue WHERE name=%s', (location,))
-            # venue_rows = cur.fetchall()
-            # venue_id = venue_rows[0][0]
-            #
-            # # print(artist_id)
-            # # print(venue_id)
-            #
-            # #check if show has been created.
-            # cur.execute('SELECT * FROM lmn_show WHERE show_date=%s AND artist_id=%s AND venue_id=%s', (date,artist_id,venue_id,))
-            # event_rows = cur.fetchall()
-            #
-            # if not event_rows:
-            #
-            #     query = 'INSERT INTO lmn_show (show_date,artist_id,venue_id) VALUES (%s,%s,%s)'
-            #     cur.execute(query, (date, artist_id, venue_id))
-            #     db.commit()
-            #
+            cur.execute('SELECT * FROM lmn_artist WHERE name=%s', (name,))
+            artist_rows = cur.fetchall()
+
+            cur.execute('SELECT * FROM lmn_venue WHERE name=%s', (location,))
+            venue_rows = cur.fetchall()
+
+            artist_id = 0
+            venue_id = 0
+
+            #check if artist is in database.
+            if not artist_rows:
+
+                query = 'INSERT INTO lmn_artist (name) VALUES (%s)'
+                cur.execute(query, (name,))
+                db.commit()
+
+            #need to get artist ID to enter show information.
+            cur.execute('SELECT * FROM lmn_artist WHERE name=%s', (name,))
+            artist_rows = cur.fetchall()
+            artist_id = artist_rows[0][0]
+
+            cur.execute('SELECT * FROM lmn_venue WHERE name=%s', (location,))
+            venue_rows = cur.fetchall()
+            venue_id = venue_rows[0][0]
+
+            # print(artist_id)
+            # print(venue_id)
+
+            #check if show has been created.
+            cur.execute('SELECT * FROM lmn_show WHERE show_date=%s AND artist_id=%s AND venue_id=%s', (date,artist_id,venue_id,))
+            event_rows = cur.fetchall()
+
+            if not event_rows:
+
+                query = 'INSERT INTO lmn_show (show_date,artist_id,venue_id) VALUES (%s,%s,%s)'
+                cur.execute(query, (date, artist_id, venue_id))
+                db.commit()
+
         cur.execute('SELECT * FROM lmn_show')
         event_rows = cur.fetchall()
         print(event_rows)
