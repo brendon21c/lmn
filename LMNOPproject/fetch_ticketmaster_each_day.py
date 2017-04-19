@@ -10,11 +10,24 @@ import os
 
 try:
 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'lmnop',
+            'USER' : 'lmnop',
+
+            'PASSWORD' : os.environ['POSTGRES_LMNOP_USER_PASSWORD'],
+            'HOST' : 'localhost',
+            'PORT' : '',
+        }
+    }
+
     import dj_database_url
     db_from_env = dj_database_url.config()
     DATABASES['default'].update(db_from_env)
 
     db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'], host=db_from_env)
+    #db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'])
     cur = db.cursor()
 
     # search = 'SELECT * FROM lmn_note'
@@ -160,7 +173,6 @@ try:
 
         cur.execute('SELECT * FROM lmn_show')
         event_rows = cur.fetchall()
-        print(event_rows)
 
     except Exception as e:
 
