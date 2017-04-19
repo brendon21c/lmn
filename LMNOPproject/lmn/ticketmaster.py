@@ -124,6 +124,11 @@ def get_dates_for_artist(band_name):
 
         value_list = []
 
+        print(show_list)
+
+        # simple string to return to the view so that the program knows what to display.
+        result_code = ''
+
         # loop over created dictionary and add show/artist to database.
         for key, value in show_list.items():
 
@@ -151,16 +156,16 @@ def get_dates_for_artist(band_name):
             # if the show hasn't been created.
             if not show_query:
 
-                #print("temp")
+
                 entry = Show.objects.create(show_date = date, artist = artist_query[0], venue = venue_query[0])
+                result_code = "entered"
 
-                return "entered"
-
+        
             else:
 
                 query = Show.objects.filter(show_date = date).filter(artist = artist_query[0]).filter(venue = venue_query[0])
 
-                return query
+                result_code = "already"
 
 
 
