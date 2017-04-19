@@ -6,27 +6,15 @@ import logging
 from lmn.keys import keys
 import psycopg2
 import os
+import urllib.parse as urlparse
 
 
 try:
+    
+    url = os.environ['DATABASE_URL']
+    p_url = urlparse.urlparse(url)
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'lmnop',
-            'USER' : 'lmnop',
-
-            'PASSWORD' : os.environ['POSTGRES_LMNOP_USER_PASSWORD'],
-            'HOST' : 'localhost',
-            'PORT' : '',
-        }
-    }
-
-    import dj_database_url
-    db_from_env = dj_database_url.config()
-    DATABASES['default'].update(db_from_env)
-
-    db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'], host=db_from_env)
+    db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'], host=p_url.hostname, port=p_url.port)
     #db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'])
     cur = db.cursor()
 
