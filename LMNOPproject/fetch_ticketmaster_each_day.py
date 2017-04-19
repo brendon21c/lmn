@@ -5,12 +5,12 @@ import json
 import logging
 from lmn.keys import keys
 import psycopg2
+import os
 
 
 try:
 
-
-    db = psycopg2.connect(database='lmnop', user='lmnop', password='yankees7')
+    db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'], host= os.environ['DATABASE_URL'])
     cur = db.cursor()
 
     # search = 'SELECT * FROM lmn_note'
