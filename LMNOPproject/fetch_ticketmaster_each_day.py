@@ -22,22 +22,6 @@ try:
     #db = psycopg2.connect(database='lmnop', user='lmnop', password=os.environ['POSTGRES_LMNOP_USER_PASSWORD'])
     cur = db.cursor()
 
-    # search = 'SELECT * FROM lmn_note'
-    # cur.execute(search)
-    # rows = cur.fetchall()
-    # print(rows)
-
-    # artist = 'Brendon McKeever'
-    # cur.execute('SELECT * FROM lmn_artist WHERE name=%s', (artist,)) # TODO can't seem to figure out how to pass a string into query.
-    # rows = cur.fetchall()
-    # print(rows)
-    # print(type(rows))
-
-    # query = 'INSERT INTO lmn_artist (name) VALUES (%s)'
-    # cur.execute(query, (artist,))
-    # db.commit()
-
-
     # start the daily task of adding events to database from ticketmaster.
     base_url = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey={}&startDateTime={}&endDateTime={}&stateCode=MN'
 
