@@ -1,3 +1,23 @@
+run pip install -r requirements.txt for the directory that contains the file
+homepage
+![image](https://cloud.githubusercontent.com/assets/22032833/25221512/f9434cfc-257a-11e7-80b1-a6d26f53f17c.png)
+
+userprofile
+![image](https://cloud.githubusercontent.com/assets/22032833/25221459/cd91b472-257a-11e7-885e-cde66650ffb9.png)
+
+venue list
+![image](https://cloud.githubusercontent.com/assets/22032833/25221535/10ddb334-257b-11e7-8b60-8527c2298abe.png)
+
+Artist list
+![image](https://cloud.githubusercontent.com/assets/22032833/25221535/10ddb334-257b-11e7-8b60-8527c2298abe.png)
+Artist notes
+![image](https://cloud.githubusercontent.com/assets/22032833/25221585/3513088a-257b-11e7-9c6b-1dd7b48baba6.png)
+
+notes list
+![image](https://cloud.githubusercontent.com/assets/22032833/25221609/507927ee-257b-11e7-878b-038ab81798c6.png)
+
+
+
 #LMNOP
 
 ## Live Music Notes, Opinions, Photographs
