@@ -36,9 +36,17 @@ Artist notes
 ![image](https://cloud.githubusercontent.com/assets/22032833/25221585/3513088a-257b-11e7-9c6b-1dd7b48baba6.png)
 
 notes list
-![image](https://cloud.githubusercontent.com/assets/22032833/25221609/507927ee-257b-11e7-878b-038ab81798c6.png)
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25227999/3f6a2a9c-2590-11e7-8389-ab9e09e2b4ad.png)
 
 
+Pagination
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25228105/abc1f922-2590-11e7-9b19-9e544180b071.png)
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25228157/eeab4496-2590-11e7-9b9c-b8cef13bfaaa.png)
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25228185/13aed654-2591-11e7-81f7-5d8d60bad3cc.png)
 
 #LMNOP
 
