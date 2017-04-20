@@ -22,7 +22,7 @@ def venue_list(request):
     else :
         venues = Venue.objects.all().order_by('name')   # Todo paginate
 
-        # notes_list = Note.objects.all().order_by('posted_date').reverse()
+      
         paginator = Paginator(venues, 10) # Show 10 venus per page
 
         page = request.GET.get('page')
