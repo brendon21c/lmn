@@ -12,6 +12,7 @@ from django.http import JsonResponse, HttpResponseBadRequest
 from django.core.serializers.json import DjangoJSONEncoder
 import json
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 @login_required
 def new_note(request, show_pk):
 
@@ -49,8 +50,30 @@ def edit_notes(request, pk):
         return render(request, r'lmn/notes/edit.html', {'form': form})
 
 def latest_notes(request):
-    notes = Note.objects.all().order_by('posted_date').reverse()
+    notes_list = Note.objects.all().order_by('posted_date').reverse()
+    paginator = Paginator(notes_list, 10) # Show 10 notes per page
+
+    page = request.GET.get('page')
+    try:
+        notes = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        notes = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        notes = paginator.page(paginator.num_pages)
     return render(request, r'lmn/notes/note_list.html', {'notes':notes})
+
+
+
+
+
+
+# def listing(request):
+#     contact_list = Contacts.objects.all()
+#
+#
+#     return render(request, 'list.html', {'contacts': contacts})
 
 
 def notes_for_show(request, show_pk):   # pk = show pk
@@ -74,6 +97,8 @@ def delete_notes(request, pk):
     notes.delete()
     return redirect('lmn:latest_notes')
 
+
+# Ajax for autocompletion when searcing notes note yet working
 class NoteJSONEncoder(DjangoJSONEncoder):
 	def default(self, obj):
 		if isinstance(obj, Note):

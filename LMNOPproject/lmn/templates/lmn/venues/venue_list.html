@@ -39,4 +39,20 @@
 
 </div>
 
+<div class="pagination">
+    <span class="step-links">
+        {% if venues.has_previous %}
+            <a href="?page={{ venues.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ venues.number }} of {{ venues.paginator.num_pages }}.
+        </span>
+
+        {% if venues.has_next %}
+            <a href="?page={{ venues.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock %}
