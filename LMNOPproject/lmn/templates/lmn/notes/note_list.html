@@ -34,7 +34,7 @@
   <P class="note_info">Posted {{ note.posted_date|timesince }} ago by <a class='user' href="{% url 'lmn:user_profile' user_pk=note.user.pk %}">{{ note.user.username }}</a></p>
   <p class='note_text'>{{ note.text|truncatechars:100 }}</p>
   {% if note.photo %}
-  <p><img src="{{note.photo.url}}" class="thumbnail" alt="" width="200" height="200"></p>
+  <p><img src="{{note.photo.url}}" class="img-rounded" alt="" width="200" height="200"></p>
   {% else %}
   <p>
     No photo attached
@@ -51,6 +51,22 @@
 <p>No notes.</p>
 
 {% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if notes.has_previous %}
+            <a href="?page={{ notes.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ notes.number }} of {{ notes.paginator.num_pages }}.
+        </span>
+
+        {% if notes.has_next %}
+            <a href="?page={{ notes.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
 
 <!-- If this is a list of notes for one show,
 display button to add new note for that show. -->

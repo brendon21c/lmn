@@ -6,6 +6,7 @@ from .forms import VenueSearchForm, NewNoteForm, ArtistSearchForm, UserRegistrat
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.utils import timezone
 
@@ -20,6 +21,19 @@ def venue_list(request):
         venues = Venue.objects.filter(name__icontains=search_name).order_by('name')
     else :
         venues = Venue.objects.all().order_by('name')   # Todo paginate
+
+        # notes_list = Note.objects.all().order_by('posted_date').reverse()
+        paginator = Paginator(venues, 10) # Show 10 venus per page
+
+        page = request.GET.get('page')
+        try:
+            venues = paginator.page(page)
+        except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+            venues = paginator.page(1)
+        except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+            venues = paginator.page(paginator.num_pages)
 
     return render(request, 'lmn/venues/venue_list.html', { 'venues' : venues, 'form':form, 'search_term' : search_name })
 
