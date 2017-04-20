@@ -1,12 +1,21 @@
 Follow these steps:
+
 a. Create a virtual environment
+
 b. Activate the virtual environment 
+
 c. Go to the directory that have the requirements.txt file
+
 d. Use "pip install -r requirements.txt" to install all packages that are being used for the project.
+
 e. in Postgres cammand line
+  
   CREATE DATABASE lmnop;
+  
   CREATE USER lmnop WITH PASSWORD 'lmnop';
+  
   ALTER USER lmnop WITH SUPERUSER;
+
 f. Run python manage.py run server to see if the server is working.
 
 Screenshots
