@@ -656,3 +656,5 @@ class TestProfilePage(LiveServerTestCase):
         note_divs = self.browser.find_elements_by_class_name('note')
         assert len(note_divs) is 0
         assert 'No notes' in self.browser.find_element_by_id('no_records').text
+
+    
