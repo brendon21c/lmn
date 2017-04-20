@@ -1,5 +1,10 @@
-<!DOCTYPE html>
 {% extends 'lmn/base.html' %}
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+
 
 <html>
   <head>
@@ -10,12 +15,15 @@
   {% block content %}
 
 
-<h3>Search Notes</h3>
-<input type="text" id="search_input"></input>
+<P>Enter a name to search for </P>
 
-<div id="search_results">
+<!-- Attach JavaScript to this text box. Listen for keyup events. Send query to server after every keyup.  -->
+<input id='search_input' type=text></input>
 
-</div >
+<!-- Display results here  -->
+<div id='search_results'>
+</div>
+
 {% if show %}
   <h2 id="show_title">Notes for {{ show.artist.name }} at {{ show.venue.name }} on {{ show.show_date }}</h2>
 {% else %}
@@ -34,7 +42,7 @@
   <P class="note_info">Posted {{ note.posted_date|timesince }} ago by <a class='user' href="{% url 'lmn:user_profile' user_pk=note.user.pk %}">{{ note.user.username }}</a></p>
   <p class='note_text'>{{ note.text|truncatechars:100 }}</p>
   {% if note.photo %}
-  <p><img src="{{note.photo.url}}" class="thumbnail" alt="" width="200" height="200"></p>
+  <p><img src="{{note.photo.url}}" class="img-rounded" alt="" width="200" height="200"></p>
   {% else %}
   <p>
     No photo attached
@@ -52,6 +60,22 @@
 
 {% endfor %}
 
+<div class="pagination">
+    <span class="step-links">
+        {% if notes.has_previous %}
+            <a href="?page={{ notes.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ notes.number }} of {{ notes.paginator.num_pages }}.
+        </span>
+
+        {% if notes.has_next %}
+            <a href="?page={{ notes.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
 <!-- If this is a list of notes for one show,
 display button to add new note for that show. -->
 
@@ -67,7 +91,9 @@ display button to add new note for that show. -->
 
 {% endblock content %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="lmn/static/js/search.js"></script>
+
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="static/js/search.js"></script>
 </html>

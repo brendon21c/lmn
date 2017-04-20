@@ -69,3 +69,7 @@ class Note(models.Model):
 
     def __str__(self):
         return 'Note for user ID {} for show ID {} with title {} text {} posted on {}'.format(self.user, self.show, self.title, self.text, self.posted_date)
+
+
+    def __str__(self):
+        return self.title

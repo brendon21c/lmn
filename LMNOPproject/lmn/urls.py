@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^notes/add/(?P<show_pk>\d+)/$', views_notes.new_note, name='new_note'),
     url(r'^notes/edit/(?P<pk>\d+)/$', views_notes.edit_notes, name='edit_notes'),
     url(r'^notes/delete(?P<pk>\d+)/$', views_notes.delete_notes, name='delete_notes'),
-    url(r'^notes/search/', views_notes.search_notes, name='search'),
+    url(r'^search/search/', views_notes.search_notes, name='search'),
     # Artist related
     url(r'^artists/list/$', views_artists.artist_list, name='artist_list'),
     url(r'^artists/detail/(?P<artist_pk>\d+)/$', views_artists.artist_detail, name='artist_detail'),

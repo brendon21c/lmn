@@ -1,3 +1,53 @@
+Follow these steps:
+
+a. Create a virtual environment
+
+b. Activate the virtual environment 
+
+c. Go to the directory that have the requirements.txt file
+
+d. Use "pip install -r requirements.txt" to install all packages that are being used for the project.
+
+e. in Postgres cammand line
+  
+  CREATE DATABASE lmnop;
+  
+  CREATE USER lmnop WITH PASSWORD 'lmnop';
+  
+  ALTER USER lmnop WITH SUPERUSER;
+
+f. Run python manage.py run server to see if the server is working.
+
+Screenshots
+
+homepage
+![image](https://cloud.githubusercontent.com/assets/22032833/25221512/f9434cfc-257a-11e7-80b1-a6d26f53f17c.png)
+
+userprofile
+![image](https://cloud.githubusercontent.com/assets/22032833/25221459/cd91b472-257a-11e7-885e-cde66650ffb9.png)
+
+venue list
+![image](https://cloud.githubusercontent.com/assets/22032833/25221535/10ddb334-257b-11e7-8b60-8527c2298abe.png)
+
+Artist list
+![image](https://cloud.githubusercontent.com/assets/22032833/25226029/11c1f7ca-2589-11e7-9c7f-fa35be34be3b.png)
+
+Artist notes
+![image](https://cloud.githubusercontent.com/assets/22032833/25221585/3513088a-257b-11e7-9c6b-1dd7b48baba6.png)
+
+notes list
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25227999/3f6a2a9c-2590-11e7-8389-ab9e09e2b4ad.png)
+
+
+Pagination
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25228105/abc1f922-2590-11e7-9b19-9e544180b071.png)
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25228157/eeab4496-2590-11e7-9b9c-b8cef13bfaaa.png)
+
+![image](https://cloud.githubusercontent.com/assets/17325437/25228185/13aed654-2591-11e7-81f7-5d8d60bad3cc.png)
+
 #LMNOP
 
 ## Live Music Notes, Opinions, Photographs

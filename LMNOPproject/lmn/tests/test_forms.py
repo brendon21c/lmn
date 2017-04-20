@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from django.contrib.auth.models import User
-from LMNOPsite.lmn.forms import NewNoteForm, UserRegistrationForm
+from LMNOPproject.lmn.forms import NewNoteForm, UserRegistrationForm
 import string
 
 # Test that forms are validating correctly, and don't accept invalid data
