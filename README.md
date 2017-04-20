@@ -1,4 +1,14 @@
-Follow these steps:
+Features added:
+
+Users have an editable user profile, with a join date and an about field
+
+Application searches ticketmaster for upcoming concerts in Minnesota and loads the database with venues, artists, and shows, each day
+
+Users are able to add notes about shows which can be in the notes page
+
+You can add photos to a note
+
+To run the program follow these steps:
 
 a. Create a virtual environment
 
