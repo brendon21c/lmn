@@ -9,7 +9,7 @@ $(function(){
     console.log('done')
     update_search_results(data)
   }).fail(function(){
-    console.log('todo handle errors here')
+    alert("Error getting query data")
   });
 
 
@@ -17,7 +17,6 @@ $(function(){
   $('#search_input').keyup(function(){
 
     var text = $(this).val();
-    console.log(text);
 
     $.get(
       'search',
@@ -26,7 +25,7 @@ $(function(){
       console.log('done')
       update_search_results(data)
     }).fail(function(){
-      console.log('todo handle errors here')
+      alert("Error getting query data")
     });
 
   });

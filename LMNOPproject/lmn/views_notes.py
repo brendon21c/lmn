@@ -65,17 +65,6 @@ def latest_notes(request):
     return render(request, r'lmn/notes/note_list.html', {'notes':notes})
 
 
-
-
-
-
-# def listing(request):
-#     contact_list = Contacts.objects.all()
-#
-#
-#     return render(request, 'list.html', {'contacts': contacts})
-
-
 def notes_for_show(request, show_pk):   # pk = show pk
 
     # Notes for show, most recent first
@@ -98,21 +87,26 @@ def delete_notes(request, pk):
     return redirect('lmn:latest_notes')
 
 
-# Ajax for autocompletion when searcing notes note yet working
+# Ajax for autocompletion when searcing notes not yet working
+
 class NoteJSONEncoder(DjangoJSONEncoder):
-	def default(self, obj):
-		if isinstance(obj, Note):
-			return obj.__dict__
+    def default(self, obj):
+        if isinstance(obj, Note):
+            return obj.__dict__
 
 
 def search_notes(request):
-	note = request.GET.get('query')
 
-	if note:
-		notes = list(Note.objects.filter(name__icontains=note).order_by('title'))
+    note = request.GET.get('query')   # This is sent with the AJAX query.
 
-	else:
-		notes = list(Note.objects.all().order_by('title'))
+    if note:
+        # DB query
+        notes = list(Note.objects.filter(title__icontains=note).order_by('text'))
+    else:
+        # No search query, return everything. Adapt to suit the behavior of your app.
+        # Everything could be a lot! You would probably want to limit to (e.g.) the first 30 results
+        notes = list(Note.objects.all().order_by('text'))
 
-
-	return JsonResponse(notes, encoder=NoteJSONEncoder, safe=False)
+    # Use PlaceJSONEncoder to convert list of Places to JSON. Return JSON object.
+    return JsonResponse(notes, encoder=NoteJSONEncoder, safe=False)
+	

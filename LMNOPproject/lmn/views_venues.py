@@ -23,7 +23,7 @@ def venue_list(request):
         venues = Venue.objects.all().order_by('name')   # Todo paginate
 
       
-        paginator = Paginator(venues, 10) # Show 10 venus per page
+        paginator = Paginator(venues, 10) # Show 10 venues per page
 
         page = request.GET.get('page')
         try:
