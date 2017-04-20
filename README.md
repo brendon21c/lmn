@@ -15,8 +15,12 @@ e. in Postgres cammand line
   CREATE USER lmnop WITH PASSWORD 'lmnop';
   
   ALTER USER lmnop WITH SUPERUSER;
+  
+  ALTER USER lmnop WITH CREATEDB; (for testing, so the user can create and delete test database)
 
 f. Run python manage.py run server to see if the server is working.
+
+If you get a Pillow not installed error, we found that if you uninstall Python, and reinstall it, the error goes away. 
 
 Screenshots
 
