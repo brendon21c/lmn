@@ -3,7 +3,7 @@ from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 from django.contrib import auth
 
-from ..models import Venue, Artist, Note, Show
+from LMNOPproject.lmn.models import Venue, Artist, Note, Show
 from django.contrib.auth.models import User
 
 import re, datetime
