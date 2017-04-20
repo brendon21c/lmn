@@ -30,7 +30,8 @@ venue list
 ![image](https://cloud.githubusercontent.com/assets/22032833/25221535/10ddb334-257b-11e7-8b60-8527c2298abe.png)
 
 Artist list
-![image](https://cloud.githubusercontent.com/assets/22032833/25221535/10ddb334-257b-11e7-8b60-8527c2298abe.png)
+![image](https://cloud.githubusercontent.com/assets/22032833/25226029/11c1f7ca-2589-11e7-9c7f-fa35be34be3b.png)
+
 Artist notes
 ![image](https://cloud.githubusercontent.com/assets/22032833/25221585/3513088a-257b-11e7-9c6b-1dd7b48baba6.png)
 
