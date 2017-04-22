@@ -21,6 +21,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.conf.urls.static import static
 from LMNOPproject.lmn import views, views_users
 from django.conf import settings
+from LMNOPproject.lmn import views_social as core_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),    #Admin site
@@ -30,6 +31,10 @@ urlpatterns = [
     url(r'^register/$', views_users.register, name='register'),
 
     url(r'^', include('LMNOPproject.lmn.urls') ),
+
+    #login with social media
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^admin/', admin.site.urls),
 
 ]
 if settings.DEBUG:

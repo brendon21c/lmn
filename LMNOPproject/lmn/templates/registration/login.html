@@ -24,8 +24,11 @@
   </form>
 
 <P><a href="{% url 'register' %}">Or create an account</a></p>
+<br>
+<p><strong>-- or Login with--</strong></p>
+<a href="{% url 'social:begin' 'twitter' %}">Twitter</a><br>
+<a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
 
 {% endblock %}
   </body>
 </html>
-

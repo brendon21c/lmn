@@ -12,25 +12,25 @@ To run the program follow these steps:
 
 a. Create a virtual environment
 
-b. Activate the virtual environment 
+b. Activate the virtual environment
 
 c. Go to the directory that have the requirements.txt file
 
 d. Use "pip install -r requirements.txt" to install all packages that are being used for the project.
 
 e. in Postgres cammand line
-  
+
   CREATE DATABASE lmnop;
-  
+
   CREATE USER lmnop WITH PASSWORD 'lmnop';
-  
+
   ALTER USER lmnop WITH SUPERUSER;
-  
+
   ALTER USER lmnop WITH CREATEDB; (for testing, so the user can create and delete test database)
 
 f. Run python manage.py run server to see if the server is working.
 
-If you get a Pillow not installed error, we found that if you uninstall Python, and reinstall it, the error goes away. 
+If you get a Pillow not installed error, we found that if you uninstall Python, and reinstall it, the error goes away.
 
 Screenshots
 
@@ -82,7 +82,7 @@ start postgres shell with `psql`
 And create a user called lmnop
 
 ```
-create user lmnop with password 'password_here'; 
+create user lmnop with password 'password_here';
 ```
 
 create a database lmnop
@@ -91,8 +91,8 @@ create a database lmnop
 create database owner lmnop;
 ```
 
-Various postgres shell commands 
-connect to lmnop database 
+Various postgres shell commands
+connect to lmnop database
 
 ```
 \c lmnop
@@ -110,12 +110,12 @@ POSTGRES_LMNOP_USER_PASSWORD
 with a value of the lmnop user's password
 
 
-(Mac users may need to run these commands; these one time 
+(Mac users may need to run these commands; these one time
 
 `sudo ln -s /Library/PosgreSQL/9.5/lib/libssl.1.0.0.dylib /usr/local/lib
 sudo ln -s /Library/PosgreSQL/9.5/lib/libcrypto.1.0.0.dylib /usr/local/lib`
 
-And this when you start a new shell; or set it permanently in .bash_profile 
+And this when you start a new shell; or set it permanently in .bash_profile
 `export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.5/lib:$DYLD_LIBRARY_PATH`
 )
 
@@ -123,7 +123,7 @@ And this when you start a new shell; or set it permanently in .bash_profile
 
 1. Create and activate a virtual environment. Use Python3 as the interpreter.
 
-2. pip install -r requirements.txt
+2. pip install -r requirements.txt and pip install social-auth-app-django if the requirements doesn't do it
 
 3. cd LMNOP/LMNOPSite
 
@@ -135,7 +135,7 @@ And this when you start a new shell; or set it permanently in .bash_profile
 
 Site at
 
-127.0.0.1:8000
+127.0.0.1:8000 and localhost:8000 to login with your facebook
 
 ###Create superuser
 
@@ -179,3 +179,12 @@ From directory with manage.py in it,
 coverage run --source='.' manage.py test lmn.tests
 
 coverage report
+
+### Social media
+
+install django social media auth with: pip install social-auth-app-django
+
+add login with social media was really helpful
+https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
+
+To login in facebook for some reason it is not working on 127.0.0.1:8000, so you have to use localhost:8000

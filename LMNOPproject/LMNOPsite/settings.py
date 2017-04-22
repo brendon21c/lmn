@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'background_task',
     'LMNOPproject.lmn',
+
+    'social_django',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -54,6 +56,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'LMNOPproject.LMNOPsite.urls'
@@ -69,10 +73,20 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 WSGI_APPLICATION = 'LMNOPsite.wsgi.application'
 
@@ -135,8 +149,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Where to send user after successful login if no other page is provided.
 # Should provide the user object.
-LOGIN_REDIRECT_URL = 'lmn:my_user_profile'
+LOGIN_REDIRECT_URL = 'lmn:homepage'
 LOGOUT_REDIRECT_URL = 'lmn:homepage'
+
+#Twitter keys and secret api
+SOCIAL_AUTH_TWITTER_KEY = '34unFacCOVkBHJch0B9xCDMUP'
+SOCIAL_AUTH_TWITTER_SECRET = 'MF4yfdvi6NsTVrRZIVQlitOTByc2EKQhdVk4QjK9IDiThtACtc'
+
+#facebook keys and secret api
+SOCIAL_AUTH_FACEBOOK_KEY = '186769011838251'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '1b77fa3e03b090ec44f8bbe9400451a6'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
